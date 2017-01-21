@@ -38,6 +38,7 @@ func _on_thinking_track_pressed_wrong_key():
 	sequence_timer.start()
 	decrement_life()
 	upper_part.got_hit_by_wave(PAUSE_TIME)
+	thinking_track.clear()
 	check_game_over()
 	
 func _on_thinking_track_completed_key_sequence():
@@ -52,7 +53,7 @@ func _on_sequence_timer_timeout():
 	if (current_action == STANDING):
 		# timed out while standing -> got hit
 		lifes -= 1
-		# thinking_track.clear()
+		thinking_track.clear()
 		decrement_life()
 		upper_part.lost_a_life()
 		check_game_over()
