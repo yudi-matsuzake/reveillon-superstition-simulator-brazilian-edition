@@ -42,6 +42,7 @@ func lost_a_life():
 		get_node("LifeMeter/L" + str(life_counter)).set_frame(1)
 		life_counter -= 1
 		get_node("Wave/WaveAnimation").play("waveflow")
+		get_node("Menini/MeniniPlayer").play("pain")
 		
 	if life_counter == 0:
 		emit_signal("game_over")
@@ -64,7 +65,7 @@ func got_hit_by_wave(time):
 func speed_wave(time):
 	var tween = get_node("Tween")
 	get_node("Wave/WaveAnimation").stop(false)
-	tween.targeting_property(wave, "transform/pos", wave, "transform/pos", Vector2(50, wave.get_pos().y), time, tween.TRANS_LINEAR, 2)
+	tween.targeting_property(wave, "transform/pos", wave, "transform/pos", Vector2(-50, 400), time, tween.TRANS_LINEAR, 2)
 	tween.start()
 	
 func _ready():

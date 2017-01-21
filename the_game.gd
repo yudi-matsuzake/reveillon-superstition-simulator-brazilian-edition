@@ -15,11 +15,20 @@ var upper_part
 var thinking_track
 var current_action = STANDING
 
+var bonus_counter = 0
+var final_score = 0
+var waves_jumped_label
+
 func _ready():
 	sequence_timer = get_node("sequence_timer")
 	upper_part = get_node("upper_part")
 	thinking_track = get_node("thinking_track")
+	waves_jumped_label = get_node("WavesJumpedLabel")
 	generate_new_wave()
+	set_process(true)
+	
+func _process(delta):
+	pass
 
 func generate_new_wave():
 	if current_action != GAME_OVER :
@@ -41,6 +50,7 @@ func _on_thinking_track_pressed_wrong_key():
 	thinking_track.clear()
 	check_game_over()
 	
+# COMPLETED SEQUENCE, INCREMENT COUNTER
 func _on_thinking_track_completed_key_sequence():
 	n_waves += 1
 	current_action = JUMPING_WAVE
