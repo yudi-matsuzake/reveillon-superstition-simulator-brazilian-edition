@@ -31,7 +31,7 @@ tracks/0/type = "value"
 tracks/0/path = NodePath(".:transform/pos")
 tracks/0/interp = 1
 tracks/0/imported = false
-tracks/0/keys = { "times":FloatArray( 0, 5 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ Vector2( 1034, 325 ), Vector2( -200, 325 ) ] }
+tracks/0/keys = { "times":FloatArray( 0, 5 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ Vector2( 1034, 325 ), Vector2( 50, 325 ) ] }
 
 [sub_resource type="Animation" id=2]
 
@@ -126,7 +126,7 @@ script/script = ExtResource( 1 )
 
 [node name="Wave" type="Sprite" parent="."]
 
-transform/pos = Vector2( 1034, 325 )
+transform/pos = Vector2( 50, 325 )
 texture = ExtResource( 2 )
 centered = false
 offset = Vector2( 0, 50 )
@@ -177,7 +177,7 @@ texture = ExtResource( 5 )
 
 frames = SubResource( 4 )
 animation = "default"
-frame = 2
+frame = 1
 playing = true
 centered = false
 
@@ -211,6 +211,7 @@ centered = false
 transform/pos = Vector2( 100, 375 )
 frames = SubResource( 6 )
 animation = "default"
+frame = 2
 playing = true
 centered = false
 script/script = ExtResource( 19 )

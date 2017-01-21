@@ -27,4 +27,6 @@ autostart = false
 
 [connection signal="pressed_wrong_key" from="thinking_track" to="." method="_on_thinking_track_pressed_wrong_key"]
 
+[connection signal="timeout" from="sequence_timer" to="." method="_on_sequence_timer_timeout"]
+
 
