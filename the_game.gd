@@ -18,14 +18,14 @@ func generate_new_wave():
 	thinking_track.generate_new_thoughts(n_waves)
 
 func _on_thinking_track_pressed_correct_key():
-	get_node("UpperPart").pressed_correct_key()
+	upper_part.pressed_correct_key()
 
 func _on_thinking_track_pressed_wrong_key():
-	get_node("UpperPart").pressed_wrong_key()
+	upper_part.pressed_wrong_key()
 	
 func _on_thinking_track_completed_key_sequence():
 	n_waves += 1
-	get_node("UpperPart").jumpwave()
+	upper_part.jumpwave()
 
 func _on_thinking_track_sequence_timeout():
-	get_node("UpperPart").lost_a_life()
+	upper_part.lost_a_life()
