@@ -26,6 +26,7 @@ func _input(event):
 		
 	if (event.is_action_pressed("give_bonus")):
 		give_bonus()
+		pressed_wrong_key()
 	
 	if (event.is_action_released("jump")):
 		get_node("Menini").jump(get_node("Menini").MED)
