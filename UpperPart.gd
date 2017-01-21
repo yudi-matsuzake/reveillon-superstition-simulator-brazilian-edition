@@ -25,13 +25,21 @@ func _input(event):
 		start_wave(3)
 		
 	if (event.is_action_pressed("give_bonus")):
+		pressed_wrong_key()
 		give_bonus()
 	
 	if (event.is_action_released("jump")):
 		get_node("Menini").jump(get_node("Menini").MED)
 	
 func pressed_wrong_key():
-	var wavePlayer = get_node("WaveAnimation").stop()
+	var tween = get_node("Tween")
+	var wave = get_node("Wave")
+	get_node("Wave/WaveAnimation").stop()
+	tween.targeting_property(wave, "transform/pos", wave, "transform/pos", Vector2(-200, wave.get_pos().y), 1, tween.TRANS_LINEAR, 2)
+	tween.start()
+	var menini_player = get_node("Menini/MeniniPlayer")
+	menini_player.set_speed(2.5)
+	menini_player.play("highjump")
 	
 func lost_a_life():
 	if ( life_counter > 0 and life_counter <=3 ):
