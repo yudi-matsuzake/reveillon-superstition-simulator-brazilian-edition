@@ -2,18 +2,12 @@
 
 name="Reveillon Superstition Simulator Brazilian Edition"
 main_scene="res://UpperPart.tscn"
+icon="res://icon.png"
 
 [display]
 
 width=1024
 height=576
-
-[input]
-
-give_bonus=[key(B)]
-start_wave=[key(W)]
-lose_life=[key(L)]
-jump=[key(Up)]
 
 [render]
 

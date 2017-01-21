@@ -1,0 +1,253 @@
+[gd_scene load_steps=29 format=1]
+
+[ext_resource path="res://UpperPart.gd" type="Script" id=1]
+[ext_resource path="res://img/temporary_wave.jpg" type="Texture" id=2]
+[ext_resource path="res://img/temporary_bonus.jpg" type="Texture" id=3]
+[ext_resource path="res://bonus.gd" type="Script" id=4]
+[ext_resource path="res://img/stars.png" type="Texture" id=5]
+[ext_resource path="res://img/Camada_frente_1.png" type="Texture" id=6]
+[ext_resource path="res://img/Camada_frente_2.png" type="Texture" id=7]
+[ext_resource path="res://img/Camada_frente_3.png" type="Texture" id=8]
+[ext_resource path="res://img/temporary_heart.png" type="Texture" id=9]
+[ext_resource path="res://img/temporary_heart2.png" type="Texture" id=10]
+[ext_resource path="res://img/menini/standing_1.png" type="Texture" id=11]
+[ext_resource path="res://img/menini/standing_2.png" type="Texture" id=12]
+[ext_resource path="res://img/menini/standing_3.png" type="Texture" id=13]
+[ext_resource path="res://img/menini/jumping_1.png" type="Texture" id=14]
+[ext_resource path="res://img/menini/jumping_2.png" type="Texture" id=15]
+[ext_resource path="res://img/menini/jumping_3.png" type="Texture" id=16]
+[ext_resource path="res://img/menini/jumping_4.png" type="Texture" id=17]
+[ext_resource path="res://img/menini/jumping_5.png" type="Texture" id=18]
+[ext_resource path="res://menini.gd" type="Script" id=19]
+
+[sub_resource type="Animation" id=1]
+
+resource/name = "waveflow"
+length = 5.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:transform/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 5 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ Vector2( 1034, 325 ), Vector2( -200, 325 ) ] }
+
+[sub_resource type="Animation" id=9]
+
+resource/name = "floatbonus"
+length = 5.0
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:transform/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 1.2, 1.7, 2.5, 3.2, 3.7, 4.1, 4.7 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1, 1, 1 ), "update":0, "values":[ Vector2( 1037.81, 466.738 ), Vector2( 832.098, 480.049 ), Vector2( 746.385, 447.583 ), Vector2( 609.244, 473.637 ), Vector2( 489.246, 491.575 ), Vector2( 403.534, 456.388 ), Vector2( 300.678, 489.379 ), Vector2( 180.68, 458.536 ) ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath("Sprite:visibility/opacity")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 4.7, 5 ), "transitions":FloatArray( 1, 1, 1 ), "update":0, "values":[ 0.0, 0.0, 1.0 ] }
+tracks/2/type = "value"
+tracks/2/path = NodePath(".:visibility/self_opacity")
+tracks/2/interp = 1
+tracks/2/imported = false
+tracks/2/keys = { "times":FloatArray( 0, 4.7, 5 ), "transitions":FloatArray( 1, 1, 1 ), "update":0, "values":[ 1.0, 1.0, 0.0 ] }
+tracks/3/type = "value"
+tracks/3/path = NodePath("Sprite:transform/scale")
+tracks/3/interp = 1
+tracks/3/imported = false
+tracks/3/keys = { "times":FloatArray( 0, 4.7, 5 ), "transitions":FloatArray( 1, 1, 1 ), "update":0, "values":[ Vector2( 1, 1 ), Vector2( 1, 1 ), Vector2( 2, 2 ) ] }
+tracks/4/type = "value"
+tracks/4/path = NodePath("Sprite:transform/rot")
+tracks/4/interp = 1
+tracks/4/imported = false
+tracks/4/keys = { "times":FloatArray( 0, 4.7, 5 ), "transitions":FloatArray( 1, 1, 1 ), "update":0, "values":[ 0.0, 0.0, -20.0 ] }
+
+[sub_resource type="Animation" id=2]
+
+resource/name = "givebonus"
+length = 0.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:transform/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.5 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ Vector2( 125, -50 ), Vector2( 125, 410 ) ] }
+
+[sub_resource type="SpriteFrames" id=3]
+
+animations = [ { "frames":[ ExtResource( 6 ), ExtResource( 7 ), ExtResource( 8 ) ], "loop":true, "name":"default", "speed":5.0 } ]
+
+[sub_resource type="SpriteFrames" id=4]
+
+animations = [ { "frames":[ ExtResource( 9 ), ExtResource( 10 ) ], "loop":true, "name":"default", "speed":5.0 } ]
+
+[sub_resource type="SpriteFrames" id=8]
+
+animations = [ { "frames":[ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ], "loop":true, "name":"default", "speed":5.0 }, { "frames":[ ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ), ExtResource( 18 ) ], "loop":false, "name":"jumping", "speed":4.0 } ]
+
+[sub_resource type="Animation" id=6]
+
+resource/name = "highjump"
+length = 1.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:transform/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.1, 0.6, 1.2, 1.5 ), "transitions":FloatArray( 1, 1, 1, 1, 1 ), "update":0, "values":[ Vector2( 100, 375 ), Vector2( 100, 369.5 ), Vector2( 200, 171 ), Vector2( 258, 345 ), Vector2( 100, 375 ) ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:animation")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 0.1, 1.4, 1.5 ), "transitions":FloatArray( 1, 1, 1, 1 ), "update":1, "values":[ "default", "jumping", "jumping", "default" ] }
+
+[sub_resource type="Animation" id=5]
+
+resource/name = "lowjump"
+length = 1.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:transform/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.7, 1.2, 1.5 ), "transitions":FloatArray( 1, 1, 1, 1 ), "update":0, "values":[ Vector2( 100, 375 ), Vector2( 120, 274 ), Vector2( 144, 375 ), Vector2( 100, 375 ) ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:animation")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 0.1, 1.4, 1.5 ), "transitions":FloatArray( 1, 1, 1, 1 ), "update":1, "values":[ "default", "jumping", "jumping", "default" ] }
+
+[sub_resource type="Animation" id=7]
+
+resource/name = "mediumjump"
+length = 1.5
+loop = false
+step = 0.1
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:transform/pos")
+tracks/0/interp = 1
+tracks/0/imported = false
+tracks/0/keys = { "times":FloatArray( 0, 0.2, 0.8, 1.3, 1.5 ), "transitions":FloatArray( 1, 1, 1, 1, 1 ), "update":0, "values":[ Vector2( 100, 375 ), Vector2( 100, 393 ), Vector2( 124, 247 ), Vector2( 148, 375 ), Vector2( 100, 375 ) ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:animation")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 0.2, 1.3, 1.5 ), "transitions":FloatArray( 1, 1, 1, 1 ), "update":1, "values":[ "default", "jumping", "jumping", "default" ] }
+
+[node name="UpperPart" type="Node2D"]
+
+script/script = ExtResource( 1 )
+
+[node name="Wave" type="Sprite" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 1034, 325 )
+texture = ExtResource( 2 )
+centered = false
+offset = Vector2( 0, 50 )
+region = true
+region_rect = Rect2( 0, 0, 200, 150 )
+
+[node name="WaveAnimation" type="AnimationPlayer" parent="Wave"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/waveflow = SubResource( 1 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="bonus" type="Sprite" parent="."]
+
+editor/display_folded = true
+transform/pos = Vector2( 1037.81, 466.738 )
+texture = ExtResource( 3 )
+centered = false
+region = true
+region_rect = Rect2( 0, 0, 50, 50 )
+script/script = ExtResource( 4 )
+
+[node name="BonusPlayer" type="AnimationPlayer" parent="bonus"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/floatbonus = SubResource( 9 )
+anims/givebonus = SubResource( 2 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[node name="Sprite" type="Sprite" parent="bonus"]
+
+visibility/opacity = 0.0
+transform/pos = Vector2( 20, 0 )
+z/z = 1
+texture = ExtResource( 5 )
+
+[node name="Sea" type="AnimatedSprite" parent="."]
+
+frames = SubResource( 3 )
+animation = "default"
+frame = 1
+playing = true
+centered = false
+
+[node name="LifeMeter" type="Node2D" parent="."]
+
+editor/display_folded = true
+
+[node name="L1" type="AnimatedSprite" parent="LifeMeter"]
+
+transform/pos = Vector2( 31.5217, 29.1011 )
+frames = SubResource( 4 )
+animation = "default"
+centered = false
+
+[node name="L2" type="AnimatedSprite" parent="LifeMeter"]
+
+transform/pos = Vector2( 131.522, 29.1011 )
+frames = SubResource( 4 )
+animation = "default"
+centered = false
+
+[node name="L3" type="AnimatedSprite" parent="LifeMeter"]
+
+transform/pos = Vector2( 231.522, 29.1011 )
+frames = SubResource( 4 )
+animation = "default"
+centered = false
+
+[node name="Menini" type="AnimatedSprite" parent="."]
+
+transform/pos = Vector2( 100, 375 )
+frames = SubResource( 8 )
+animation = "default"
+playing = true
+centered = false
+script/script = ExtResource( 19 )
+
+[node name="MeniniPlayer" type="AnimationPlayer" parent="Menini"]
+
+playback/process_mode = 1
+playback/default_blend_time = 0.0
+root/root = NodePath("..")
+anims/highjump = SubResource( 6 )
+anims/lowjump = SubResource( 5 )
+anims/mediumjump = SubResource( 7 )
+playback/active = true
+playback/speed = 1.0
+blend_times = [  ]
+autoplay = ""
+
+[connection signal="finished" from="bonus/BonusPlayer" to="bonus" method="_on_BonusPlayer_finished"]
+
+
