@@ -28,7 +28,7 @@ func _ready():
 	set_process(true)
 	
 func _process(delta):
-	pass
+	display_score()
 
 func generate_new_wave():
 	if current_action != GAME_OVER :
@@ -52,7 +52,7 @@ func _on_thinking_track_pressed_wrong_key():
 	
 # COMPLETED SEQUENCE, INCREMENT COUNTER
 func _on_thinking_track_completed_key_sequence():
-	n_waves += 1
+	increase_wave_number()
 	current_action = JUMPING_WAVE
 	sequence_timer.stop()
 	sequence_timer.set_wait_time(PAUSE_TIME)
@@ -62,7 +62,7 @@ func _on_thinking_track_completed_key_sequence():
 func _on_sequence_timer_timeout():
 	if (current_action == STANDING):
 		# timed out while standing -> got hit
-		lifes -= 1
+		decrement_life()
 		thinking_track.clear()
 		decrement_life()
 		upper_part.lost_a_life()
@@ -78,12 +78,26 @@ func _on_sequence_timer_timeout():
 		current_action = STANDING
 		generate_new_wave()
 		
+		
+func increase_wave_number():
+	n_waves += 1
+	if n_waves % 7 == 0 :
+		upper_part.give_bonus()
+		bonus_counter += 1
+		# temporizar isso aqui
+		var frases = ["+ prosperidade na sua vida", "+ amor", "+ dinheiro"]
+		get_node("combo_display").set_text(frases[randi()%frases.size()])
+	
 func decrement_life():
 	lifes -= 1
 	
 func increment_life():
 	lifes += 1
 	pass
+	
+func display_score():
+	final_score = n_waves * 100 + bonus_counter * 200
+	waves_jumped_label.set_text(str(final_score))
 	
 func check_game_over():
 	if lifes <= 0:
