@@ -25,7 +25,6 @@ func _input(event):
 		start_wave(3)
 		
 	if (event.is_action_pressed("give_bonus")):
-		pressed_wrong_key()
 		give_bonus()
 	
 	if (event.is_action_released("jump")):
