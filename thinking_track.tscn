@@ -1,8 +1,7 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=4 format=1]
 
 [ext_resource path="res://img/temporary_grad.png" type="Texture" id=1]
-[ext_resource path="res://thinking_track.gd" type="Script" id=2]
-[ext_resource path="res://img/thinking_base.png" type="Texture" id=3]
+[ext_resource path="res://img/thinking_base.png" type="Texture" id=2]
 
 [sub_resource type="GDScript" id=1]
 
@@ -16,11 +15,10 @@ script/script = SubResource( 1 )
 
 transform/pos = Vector2( 102.921, 144.184 )
 texture = ExtResource( 1 )
-script/script = ExtResource( 2 )
 
 [node name="thinking_base" type="Sprite" parent="."]
 
 transform/pos = Vector2( 102.435, 260.712 )
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 
 
