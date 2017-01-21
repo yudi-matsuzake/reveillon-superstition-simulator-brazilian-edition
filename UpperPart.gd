@@ -1,14 +1,13 @@
 extends Node2D
 
+signal game_over
+
 var wave_flowing = false
-var time_limit
 var wave
 var viewport_rect
 var life_counter = 3
 	
-func start_wave(time):
-	wave_flowing = true
-	time_limit = time
+func start_wave():
 	var animPlayer = get_node("Wave/WaveAnimation").play("waveflow")
 		
 func give_bonus():
@@ -32,24 +31,33 @@ func _input(event):
 		get_node("Menini").jump(get_node("Menini").MED)
 	
 func pressed_wrong_key():
-	var tween = get_node("Tween")
-	var wave = get_node("Wave")
-	get_node("Wave/WaveAnimation").stop()
-	tween.targeting_property(wave, "transform/pos", wave, "transform/pos", Vector2(-200, wave.get_pos().y), 1, tween.TRANS_LINEAR, 2)
-	tween.start()
-	var menini_player = get_node("Menini/MeniniPlayer")
-	menini_player.set_speed(2.5)
-	menini_player.play("highjump")
+	lost_a_life()
+	
+func pressed_correct_key():
+	print("CORRECT KEY PRESSED")
 	
 func lost_a_life():
 	if ( life_counter > 0 and life_counter <=3 ):
 		get_node("LifeMeter/L" + str(life_counter)).set_frame(1)
 		life_counter -= 1
+		
+	if life_counter == 0:
+		emit_signal("game_over")
 
 func got_a_life():
 	if ( life_counter < 3 ):
 		life_counter += 1
 		get_node("LifeMeter/L" + str(life_counter)).set_frame(0)
+	
+func jumpwave():
+	var tween = get_node("Tween")
+	var wave = get_node("Wave")
+	get_node("Wave/WaveAnimation").stop(false)
+	# tween.targeting_property(wave, "transform/pos", wave, "transform/pos", Vector2(-200, wave.get_pos().y), 1, tween.TRANS_LINEAR, 2)
+	# tween.start()
+	var menini_player = get_node("Menini/MeniniPlayer")
+	menini_player.set_speed(2)
+	menini_player.play("highjump")
 	
 func _ready():
 	wave = get_node("Wave")
