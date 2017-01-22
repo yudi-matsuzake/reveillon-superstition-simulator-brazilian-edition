@@ -1,33 +1,30 @@
-[gd_scene load_steps=41 format=1]
+[gd_scene load_steps=37 format=1]
 
 [ext_resource path="res://UpperPart.gd" type="Script" id=1]
 [ext_resource path="res://bonus.gd" type="Script" id=2]
-[ext_resource path="res://img/Camada_frente_1.png" type="Texture" id=3]
-[ext_resource path="res://img/Camada_frente_2.png" type="Texture" id=4]
-[ext_resource path="res://img/Camada_frente_3.png" type="Texture" id=5]
-[ext_resource path="res://img/temporary_heart.png" type="Texture" id=6]
-[ext_resource path="res://img/temporary_heart2.png" type="Texture" id=7]
-[ext_resource path="res://img/menini/standing_1.png" type="Texture" id=8]
-[ext_resource path="res://img/menini/standing_2.png" type="Texture" id=9]
-[ext_resource path="res://img/menini/standing_3.png" type="Texture" id=10]
-[ext_resource path="res://img/menini/pain_1.png" type="Texture" id=11]
-[ext_resource path="res://img/menini/pain_2.png" type="Texture" id=12]
-[ext_resource path="res://img/menini/jumping_1.png" type="Texture" id=13]
-[ext_resource path="res://img/menini/jumping_2.png" type="Texture" id=14]
-[ext_resource path="res://img/menini/jumping_3.png" type="Texture" id=15]
-[ext_resource path="res://img/menini/jumping_4.png" type="Texture" id=16]
-[ext_resource path="res://img/menini/jumping_5.png" type="Texture" id=17]
-[ext_resource path="res://menini.gd" type="Script" id=18]
-[ext_resource path="res://menini_jumping_animations.tres" type="Animation" id=19]
-[ext_resource path="res://img/onda/onda_vindo2.png" type="Texture" id=20]
-[ext_resource path="res://img/onda/onda_vindo_1.png" type="Texture" id=21]
-[ext_resource path="res://img/onda/onda_vindo_3.png" type="Texture" id=22]
-[ext_resource path="res://fonts/bonus_font_less_space.fnt" type="BitmapFont" id=23]
-[ext_resource path="res://fonts/bonus_font.fnt" type="BitmapFont" id=24]
-[ext_resource path="res://marscript.gd" type="Script" id=25]
-[ext_resource path="res://img/onda/mar_1.png" type="Texture" id=26]
-[ext_resource path="res://img/onda/mar_2.png" type="Texture" id=27]
-[ext_resource path="res://img/onda/mar_3.png" type="Texture" id=28]
+[ext_resource path="res://img/temporary_heart.png" type="Texture" id=3]
+[ext_resource path="res://img/temporary_heart2.png" type="Texture" id=4]
+[ext_resource path="res://img/menini/standing_1.png" type="Texture" id=5]
+[ext_resource path="res://img/menini/standing_2.png" type="Texture" id=6]
+[ext_resource path="res://img/menini/standing_3.png" type="Texture" id=7]
+[ext_resource path="res://img/menini/pain_1.png" type="Texture" id=8]
+[ext_resource path="res://img/menini/pain_2.png" type="Texture" id=9]
+[ext_resource path="res://img/menini/jumping_1.png" type="Texture" id=10]
+[ext_resource path="res://img/menini/jumping_2.png" type="Texture" id=11]
+[ext_resource path="res://img/menini/jumping_3.png" type="Texture" id=12]
+[ext_resource path="res://img/menini/jumping_4.png" type="Texture" id=13]
+[ext_resource path="res://img/menini/jumping_5.png" type="Texture" id=14]
+[ext_resource path="res://menini.gd" type="Script" id=15]
+[ext_resource path="res://menini_jumping_animations.tres" type="Animation" id=16]
+[ext_resource path="res://img/onda/onda_vindo2.png" type="Texture" id=17]
+[ext_resource path="res://img/onda/onda_vindo_1.png" type="Texture" id=18]
+[ext_resource path="res://img/onda/onda_vindo_3.png" type="Texture" id=19]
+[ext_resource path="res://fonts/bonus_font_less_space.fnt" type="BitmapFont" id=20]
+[ext_resource path="res://fonts/bonus_font.fnt" type="BitmapFont" id=21]
+[ext_resource path="res://marscript.gd" type="Script" id=22]
+[ext_resource path="res://img/onda/mar_1.png" type="Texture" id=23]
+[ext_resource path="res://img/onda/mar_2.png" type="Texture" id=24]
+[ext_resource path="res://img/onda/mar_3.png" type="Texture" id=25]
 
 [sub_resource type="Animation" id=1]
 
@@ -62,17 +59,13 @@ tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = { "times":FloatArray( 0, 0.5 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ Vector2( 125, -50 ), Vector2( 125, 410 ) ] }
 
-[sub_resource type="SpriteFrames" id=3]
-
-animations = [ { "frames":[ ExtResource( 3 ), ExtResource( 4 ), ExtResource( 5 ) ], "loop":true, "name":"default", "speed":5.0 } ]
-
 [sub_resource type="SpriteFrames" id=4]
 
-animations = [ { "frames":[ ExtResource( 6 ), ExtResource( 7 ) ], "loop":true, "name":"default", "speed":5.0 } ]
+animations = [ { "frames":[ ExtResource( 3 ), ExtResource( 4 ) ], "loop":true, "name":"default", "speed":5.0 } ]
 
 [sub_resource type="SpriteFrames" id=5]
 
-animations = [ { "frames":[ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ) ], "loop":true, "name":"default", "speed":5.0 }, { "frames":[ ExtResource( 11 ), ExtResource( 12 ) ], "loop":true, "name":"in_pain", "speed":3.0 }, { "frames":[ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ), ExtResource( 16 ), ExtResource( 17 ) ], "loop":false, "name":"jumping", "speed":4.0 } ]
+animations = [ { "frames":[ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ], "loop":true, "name":"default", "speed":5.0 }, { "frames":[ ExtResource( 8 ), ExtResource( 9 ) ], "loop":true, "name":"in_pain", "speed":3.0 }, { "frames":[ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ], "loop":false, "name":"jumping", "speed":4.0 } ]
 
 [sub_resource type="Animation" id=6]
 
@@ -125,7 +118,7 @@ tracks/1/keys = { "times":FloatArray( 0, 0.3, 1.6, 2 ), "transitions":FloatArray
 
 [sub_resource type="SpriteFrames" id=9]
 
-animations = [ { "frames":[ ExtResource( 20 ), ExtResource( 21 ), ExtResource( 22 ) ], "loop":true, "name":"default", "speed":5.0 } ]
+animations = [ { "frames":[ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ) ], "loop":true, "name":"default", "speed":5.0 } ]
 
 [sub_resource type="Animation" id=10]
 
@@ -197,15 +190,6 @@ playback/speed = 1.0
 blend_times = [  ]
 autoplay = ""
 
-[node name="Sea" type="AnimatedSprite" parent="."]
-
-visibility/visible = false
-z/z = 2
-frames = SubResource( 3 )
-animation = "default"
-playing = true
-centered = false
-
 [node name="LifeMeter" type="Node2D" parent="."]
 
 editor/display_folded = true
@@ -239,14 +223,14 @@ frames = SubResource( 5 )
 animation = "default"
 playing = true
 centered = false
-script/script = ExtResource( 18 )
+script/script = ExtResource( 15 )
 
 [node name="MeniniPlayer" type="AnimationPlayer" parent="Menini"]
 
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/highjump = ExtResource( 19 )
+anims/highjump = ExtResource( 16 )
 anims/lowjump = SubResource( 6 )
 anims/mediumjump = SubResource( 7 )
 anims/pain = SubResource( 8 )
@@ -295,7 +279,7 @@ margin/left = 824.0
 margin/top = 315.0
 margin/right = 1024.0
 margin/bottom = 350.0
-custom_fonts/font = ExtResource( 23 )
+custom_fonts/font = ExtResource( 20 )
 custom_constants/line_spacing = 0
 align = 1
 valign = 2
@@ -325,7 +309,7 @@ margin/left = 824.0
 margin/top = 250.0
 margin/right = 1024.0
 margin/bottom = 300.0
-custom_fonts/font = ExtResource( 24 )
+custom_fonts/font = ExtResource( 21 )
 align = 1
 valign = 2
 percent_visible = 1.0
@@ -353,13 +337,13 @@ playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
 autoplay = "movimento"
-script/script = ExtResource( 25 )
+script/script = ExtResource( 22 )
 
 [node name="mar_1" type="Sprite" parent="OndasPlayer"]
 
 transform/pos = Vector2( 16, 9 )
 z/z = 2
-texture = ExtResource( 26 )
+texture = ExtResource( 23 )
 centered = false
 region = true
 region_rect = Rect2( 0, 0, 1024, 576 )
@@ -368,7 +352,7 @@ region_rect = Rect2( 0, 0, 1024, 576 )
 
 transform/pos = Vector2( 6, -3 )
 z/z = 1
-texture = ExtResource( 27 )
+texture = ExtResource( 24 )
 centered = false
 region = true
 region_rect = Rect2( 0, 0, 1024, 576 )
@@ -376,7 +360,7 @@ region_rect = Rect2( 0, 0, 1024, 576 )
 [node name="mar_3" type="Sprite" parent="OndasPlayer"]
 
 transform/pos = Vector2( 29, 13 )
-texture = ExtResource( 28 )
+texture = ExtResource( 25 )
 centered = false
 region = true
 region_rect = Rect2( 0, 0, 1024, 576 )
