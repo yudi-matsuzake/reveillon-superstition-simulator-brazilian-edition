@@ -1,7 +1,7 @@
 extends Node2D
 
 var file_manager = File.new()
-var save_path = "user://hightscore.save"
+var save_path = "user://highscore.save"
 var highscore_data = {
 				"highscore" : {
 					"name" : "",
@@ -9,9 +9,11 @@ var highscore_data = {
 				}}
 
 func _ready():
-	set_highscore("yudi", 0)
+	pass
 
-func set_highscore(name, highscore):    
+func set_highscore(name, highscore):
+	print('name ' + str(name))
+	print('highscore ' + str(highscore))
 	highscore_data["name"] = name
 	highscore_data["highscore"] = highscore #data to save
 	file_manager.open(save_path, File.WRITE) #open file to write
