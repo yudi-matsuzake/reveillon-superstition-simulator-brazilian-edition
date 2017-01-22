@@ -28,7 +28,8 @@ func _ready():
 	waves_jumped_label = get_node("WavesJumpedLabel")
 	bonus_list = [ 	{ 	'pre_text' : 'comeu lentilha',	'text' : "+felicidade", 	'texture' : preload("res://img/bonus/lentilha_luz.png")},
 					{	'pre_text' : 'tomou champagne', 'text' : "+prosperidade", 	'texture' : preload("res://img/bonus/champagne_luz.png")},
-					{	'pre_text' : 'comeu uva',		'text' : "+dinheiro", 		'texture' : preload("res://img/bonus/uvas_sm.png")}
+					{	'pre_text' : 'comeu uva',		'text' : "+dinheiro", 		'texture' : preload("res://img/bonus/uvas_sm.png")},
+					{	'pre_text' : 'calcinha branca',		'text' : "+paz", 		'texture' : preload("res://img/bonus/calcinha.png")}
 				 ]
 	generate_new_wave()
 	set_process(true)
