@@ -2,8 +2,8 @@
 
 [ext_resource path="res://UpperPart.gd" type="Script" id=1]
 [ext_resource path="res://bonus.gd" type="Script" id=2]
-[ext_resource path="res://img/temporary_heart.png" type="Texture" id=3]
-[ext_resource path="res://img/temporary_heart2.png" type="Texture" id=4]
+[ext_resource path="res://img/heart.png" type="Texture" id=3]
+[ext_resource path="res://img/heart_gs.png" type="Texture" id=4]
 [ext_resource path="res://img/menini/standing_1.png" type="Texture" id=5]
 [ext_resource path="res://img/menini/standing_2.png" type="Texture" id=6]
 [ext_resource path="res://img/menini/standing_3.png" type="Texture" id=7]
@@ -59,15 +59,15 @@ tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = { "times":FloatArray( 0, 0.5 ), "transitions":FloatArray( 1, 1 ), "update":0, "values":[ Vector2( 125, -50 ), Vector2( 125, 410 ) ] }
 
-[sub_resource type="SpriteFrames" id=4]
+[sub_resource type="SpriteFrames" id=3]
 
 animations = [ { "frames":[ ExtResource( 3 ), ExtResource( 4 ) ], "loop":true, "name":"default", "speed":5.0 } ]
 
-[sub_resource type="SpriteFrames" id=5]
+[sub_resource type="SpriteFrames" id=4]
 
 animations = [ { "frames":[ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ], "loop":true, "name":"default", "speed":5.0 }, { "frames":[ ExtResource( 8 ), ExtResource( 9 ) ], "loop":true, "name":"in_pain", "speed":3.0 }, { "frames":[ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ], "loop":false, "name":"jumping", "speed":4.0 } ]
 
-[sub_resource type="Animation" id=6]
+[sub_resource type="Animation" id=5]
 
 length = 1.5
 loop = false
@@ -83,7 +83,7 @@ tracks/1/interp = 1
 tracks/1/imported = false
 tracks/1/keys = { "times":FloatArray( 0, 0.1, 1.4, 1.5 ), "transitions":FloatArray( 1, 1, 1, 1 ), "update":1, "values":[ "default", "jumping", "jumping", "default" ] }
 
-[sub_resource type="Animation" id=7]
+[sub_resource type="Animation" id=6]
 
 length = 1.5
 loop = false
@@ -99,7 +99,7 @@ tracks/1/interp = 1
 tracks/1/imported = false
 tracks/1/keys = { "times":FloatArray( 0, 0.2, 1.3, 1.5 ), "transitions":FloatArray( 1, 1, 1, 1 ), "update":1, "values":[ "default", "jumping", "jumping", "default" ] }
 
-[sub_resource type="Animation" id=8]
+[sub_resource type="Animation" id=7]
 
 resource/name = "pain"
 length = 20.0
@@ -116,11 +116,11 @@ tracks/1/interp = 1
 tracks/1/imported = false
 tracks/1/keys = { "times":FloatArray( 0, 0.3, 1.6, 2 ), "transitions":FloatArray( 1, 1, 1, 1 ), "update":1, "values":[ "default", "in_pain", "in_pain", "default" ] }
 
-[sub_resource type="SpriteFrames" id=9]
+[sub_resource type="SpriteFrames" id=8]
 
 animations = [ { "frames":[ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ) ], "loop":true, "name":"default", "speed":5.0 } ]
 
-[sub_resource type="Animation" id=10]
+[sub_resource type="Animation" id=9]
 
 length = 5.0
 loop = false
@@ -131,7 +131,7 @@ tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = { "times":FloatArray( 0, 3.7, 5 ), "transitions":FloatArray( 1, 1, 1 ), "update":0, "values":[ Vector2( 1034, 325 ), Vector2( 305.84, 325 ), Vector2( -29, 401 ) ] }
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=10]
 
 resource/name = "blink"
 length = 2.0
@@ -143,7 +143,7 @@ tracks/0/interp = 1
 tracks/0/imported = false
 tracks/0/keys = { "times":FloatArray( 0, 0.3, 0.5, 0.7, 1, 1.3, 1.5, 1.7, 2 ), "transitions":FloatArray( 1, 1, 1, 1, 1, 1, 1, 1, 1 ), "update":0, "values":[ 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0, 0.0, 1.0 ] }
 
-[sub_resource type="Animation" id=12]
+[sub_resource type="Animation" id=11]
 
 resource/name = "movimento"
 length = 1.0
@@ -192,26 +192,24 @@ autoplay = ""
 
 [node name="LifeMeter" type="Node2D" parent="."]
 
-editor/display_folded = true
-
 [node name="L1" type="AnimatedSprite" parent="LifeMeter"]
 
 transform/pos = Vector2( 31.5217, 29.1011 )
-frames = SubResource( 4 )
+frames = SubResource( 3 )
 animation = "default"
 centered = false
 
 [node name="L2" type="AnimatedSprite" parent="LifeMeter"]
 
 transform/pos = Vector2( 131.522, 29.1011 )
-frames = SubResource( 4 )
+frames = SubResource( 3 )
 animation = "default"
 centered = false
 
 [node name="L3" type="AnimatedSprite" parent="LifeMeter"]
 
 transform/pos = Vector2( 231.522, 29.1011 )
-frames = SubResource( 4 )
+frames = SubResource( 3 )
 animation = "default"
 centered = false
 
@@ -219,8 +217,9 @@ centered = false
 
 editor/display_folded = true
 transform/pos = Vector2( 100, 375 )
-frames = SubResource( 5 )
+frames = SubResource( 4 )
 animation = "default"
+frame = 2
 playing = true
 centered = false
 script/script = ExtResource( 15 )
@@ -231,9 +230,9 @@ playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
 anims/highjump = ExtResource( 16 )
-anims/lowjump = SubResource( 6 )
-anims/mediumjump = SubResource( 7 )
-anims/pain = SubResource( 8 )
+anims/lowjump = SubResource( 5 )
+anims/mediumjump = SubResource( 6 )
+anims/pain = SubResource( 7 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
@@ -250,9 +249,8 @@ playback/speed = 1.0
 
 editor/display_folded = true
 transform/pos = Vector2( 1034, 325 )
-frames = SubResource( 9 )
+frames = SubResource( 8 )
 animation = "default"
-frame = 1
 playing = true
 centered = false
 
@@ -261,7 +259,7 @@ centered = false
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/waveflow = SubResource( 10 )
+anims/waveflow = SubResource( 9 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
@@ -292,7 +290,7 @@ max_lines_visible = -1
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/blink = SubResource( 11 )
+anims/blink = SubResource( 10 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
@@ -321,7 +319,7 @@ max_lines_visible = -1
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/blink = SubResource( 11 )
+anims/blink = SubResource( 10 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
@@ -329,10 +327,11 @@ autoplay = ""
 
 [node name="OndasPlayer" type="AnimationPlayer" parent="."]
 
+editor/display_folded = true
 playback/process_mode = 1
 playback/default_blend_time = 0.0
 root/root = NodePath("..")
-anims/movimento = SubResource( 12 )
+anims/movimento = SubResource( 11 )
 playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
