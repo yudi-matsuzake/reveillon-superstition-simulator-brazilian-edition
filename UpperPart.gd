@@ -2,15 +2,22 @@ extends Node2D
 
 signal game_over
 
+const COMBO_TEXT = "COMBO +7"
+
 var wave_flowing = false
 var wave
 var viewport_rect
 var life_counter = 3
-	
+
 func start_wave():
 	var animPlayer = get_node("Wave/WaveAnimation").play("waveflow")
 		
-func give_bonus():
+func bonus_arrived():
+	get_node("bonus_text/BonusTextPlayer").play("blink")
+	
+func give_bonus(bonus):
+	get_node("bonus_text").set_text(bonus.pre_text + "\n" + bonus.text)
+	get_node("bonus").set_texture(bonus.texture)
 	var animPlayer = get_node("bonus/BonusPlayer").play("floatbonus")
 	
 func _process(delta):
@@ -34,7 +41,7 @@ func pressed_wrong_key():
 	lost_a_life()
 	
 func pressed_correct_key():
-	print("CORRECT KEY PRESSED")
+	pass
 
 	
 func lost_a_life():
@@ -43,7 +50,9 @@ func lost_a_life():
 		life_counter -= 1
 		get_node("Wave/WaveAnimation").play("waveflow")
 		get_node("Menini/MeniniPlayer").play("pain")
-		
+	
+	get_node("combo_text").set_text("")
+	
 	if life_counter == 0:
 		emit_signal("game_over")
 
@@ -52,12 +61,19 @@ func got_a_life():
 		life_counter += 1
 		get_node("LifeMeter/L" + str(life_counter)).set_frame(0)
 	
-func jumpwave(time):
+func jumpwave(time, combo_count):
 	var menini_player = get_node("Menini/MeniniPlayer")
+	update_combo_display(combo_count)
 	speed_wave(time)
 	menini_player.set_speed(2 / time)
 	menini_player.play("highjump")
 
+func update_combo_display(combo_count):
+	var combo_text_label = get_node("combo_text")
+	combo_text_label.set_text("COMBO " + str(combo_count));
+	if combo_count % 7 == 0 :
+		get_node("combo_text/ComboTextPlayer").play("blink")
+	
 func got_hit_by_wave(time):
 	lost_a_life()
 	speed_wave(time)
@@ -76,3 +92,12 @@ func _ready():
 
 func _on_WaveAnimation_finished():
 	get_node("WaveAnimation").seek(0, true)
+
+func _on_BonusPlayer_finished():
+	get_node("bonus/BonusPlayer").seek(0, true)
+	bonus_arrived()
+
+func _on_BonusTextPlayer_finished():
+	get_node("bonus_text").set_text("")
+	# sometimes animation will not set self opacity to 0
+	get_node("bonus_text").set_self_opacity(0)

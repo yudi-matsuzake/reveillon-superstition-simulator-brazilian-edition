@@ -9,6 +9,3 @@ func _ready():
 	# Initialization here
 	pass
 
-
-func _on_BonusPlayer_finished():
-	get_node("BonusPlayer").seek(0, true)
