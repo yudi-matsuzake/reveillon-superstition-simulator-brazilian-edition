@@ -7,13 +7,13 @@
 [ext_resource path="res://img/menini/standing_1.png" type="Texture" id=5]
 [ext_resource path="res://img/menini/standing_2.png" type="Texture" id=6]
 [ext_resource path="res://img/menini/standing_3.png" type="Texture" id=7]
-[ext_resource path="res://img/menini/pain_1.png" type="Texture" id=8]
-[ext_resource path="res://img/menini/pain_2.png" type="Texture" id=9]
-[ext_resource path="res://img/menini/jumping_1.png" type="Texture" id=10]
-[ext_resource path="res://img/menini/jumping_2.png" type="Texture" id=11]
-[ext_resource path="res://img/menini/jumping_3.png" type="Texture" id=12]
-[ext_resource path="res://img/menini/jumping_4.png" type="Texture" id=13]
-[ext_resource path="res://img/menini/jumping_5.png" type="Texture" id=14]
+[ext_resource path="res://img/menini/jumping_1.png" type="Texture" id=8]
+[ext_resource path="res://img/menini/jumping_2.png" type="Texture" id=9]
+[ext_resource path="res://img/menini/jumping_3.png" type="Texture" id=10]
+[ext_resource path="res://img/menini/jumping_4.png" type="Texture" id=11]
+[ext_resource path="res://img/menini/jumping_5.png" type="Texture" id=12]
+[ext_resource path="res://img/menini/pain_1.png" type="Texture" id=13]
+[ext_resource path="res://img/menini/pain_2.png" type="Texture" id=14]
 [ext_resource path="res://menini.gd" type="Script" id=15]
 [ext_resource path="res://menini_jumping_animations.tres" type="Animation" id=16]
 [ext_resource path="res://img/onda/onda_vindo2.png" type="Texture" id=17]
@@ -65,7 +65,7 @@ animations = [ { "frames":[ ExtResource( 3 ), ExtResource( 4 ) ], "loop":true, "
 
 [sub_resource type="SpriteFrames" id=4]
 
-animations = [ { "frames":[ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ], "loop":true, "name":"default", "speed":5.0 }, { "frames":[ ExtResource( 8 ), ExtResource( 9 ) ], "loop":true, "name":"in_pain", "speed":3.0 }, { "frames":[ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ], "loop":false, "name":"jumping", "speed":4.0 } ]
+animations = [ { "frames":[ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ], "loop":true, "name":"default", "speed":5.0 }, { "frames":[ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ], "loop":false, "name":"jumping", "speed":4.0 }, { "frames":[ ExtResource( 13 ), ExtResource( 14 ) ], "loop":true, "name":"in_pain", "speed":3.0 } ]
 
 [sub_resource type="Animation" id=5]
 
@@ -219,7 +219,7 @@ editor/display_folded = true
 transform/pos = Vector2( 100, 375 )
 frames = SubResource( 4 )
 animation = "default"
-frame = 2
+frame = 1
 playing = true
 centered = false
 script/script = ExtResource( 15 )
@@ -251,6 +251,7 @@ editor/display_folded = true
 transform/pos = Vector2( 1034, 325 )
 frames = SubResource( 8 )
 animation = "default"
+frame = 2
 playing = true
 centered = false
 

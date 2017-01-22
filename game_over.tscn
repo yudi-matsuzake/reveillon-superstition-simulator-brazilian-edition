@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=1]
+
+[ext_resource path="res://game_over.gd" type="Script" id=1]
+[ext_resource path="res://img/background.png" type="Texture" id=2]
+[ext_resource path="res://img/game_over.png" type="Texture" id=3]
+[ext_resource path="res://try_again_button.tscn" type="PackedScene" id=4]
+
+[node name="game_over" type="Node2D"]
+
+script/script = ExtResource( 1 )
+
+[node name="background" type="Sprite" parent="."]
+
+transform/pos = Vector2( 512.688, 288.077 )
+texture = ExtResource( 2 )
+
+[node name="try_again_msg" type="Sprite" parent="."]
+
+transform/pos = Vector2( 530.114, 148.419 )
+transform/scale = Vector2( 0.51883, 0.51883 )
+texture = ExtResource( 3 )
+
+[node name="try_again_button" parent="." instance=ExtResource( 4 )]
+
+transform/pos = Vector2( 523.726, 511.402 )
+
+[connection signal="try_again_button_released" from="try_again_button" to="." method="_on_try_again_button_try_again_button_released"]
+
+

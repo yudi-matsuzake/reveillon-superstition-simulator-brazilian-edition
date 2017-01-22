@@ -111,3 +111,4 @@ func display_score():
 func check_game_over():
 	if lifes <= 0:
 		current_action = GAME_OVER
+		get_tree().change_scene("res://game_over.tscn")
