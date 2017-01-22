@@ -29,7 +29,8 @@ func _ready():
 	bonus_list = [ 	{ 	'pre_text' : 'comeu lentilha',	'text' : "+felicidade", 	'texture' : preload("res://img/bonus/lentilha_luz.png")},
 					{	'pre_text' : 'tomou champagne', 'text' : "+prosperidade", 	'texture' : preload("res://img/bonus/champagne_luz.png")},
 					{	'pre_text' : 'comeu uva',		'text' : "+dinheiro", 		'texture' : preload("res://img/bonus/uvas_sm.png")},
-					{	'pre_text' : 'calcinha branca',		'text' : "+paz", 		'texture' : preload("res://img/bonus/calcinha.png")}
+					{	'pre_text' : 'calcinha branca',	'text' : "+paz", 		'texture' : preload("res://img/bonus/calcinha.png")},
+					{ 	'pre_text' : '',				'text' : "+vida",		'texture' : preload("res://img/bonus/heart.png")}
 				 ]
 	generate_new_wave()
 	set_process(true)
@@ -41,7 +42,7 @@ func generate_new_wave():
 	if current_action != GAME_OVER :
 		upper_part.start_wave()
 		thinking_track.generate_new_thoughts(n_waves)
-		sequence_timer.set_wait_time(5)
+		sequence_timer.set_wait_time(3)
 		sequence_timer.start()
 
 func _on_thinking_track_pressed_correct_key():
@@ -92,6 +93,12 @@ func increase_wave_number():
 	combo_count += 1
 	if combo_count % 7 == 0 :
 		var bonus = bonus_list[randi() % bonus_list.size()]
+		if bonus.text == "+vida" :
+			if lifes == 3 :
+				while bonus.text == "+vida" :
+					bonus = bonus_list[randi() % bonus_list.size()]
+			else :
+				increment_life()
 		upper_part.give_bonus(bonus)
 		bonus_counter += 1
 		# temporizar isso aqui
@@ -102,7 +109,7 @@ func decrement_life():
 	
 func increment_life():
 	lifes += 1
-	pass
+	upper_part.got_a_life()
 	
 func display_score():
 	final_score = n_waves * 100 + bonus_counter * 200

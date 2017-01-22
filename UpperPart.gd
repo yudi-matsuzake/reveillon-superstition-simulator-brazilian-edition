@@ -18,6 +18,9 @@ func bonus_arrived():
 func give_bonus(bonus):
 	get_node("bonus_text").set_text(bonus.pre_text + "\n" + bonus.text)
 	get_node("bonus").set_texture(bonus.texture)
+	get_node("yellow_firework").set_self_opacity(0.8)
+	get_node("blue_firework").set_self_opacity(0.8)
+	get_node("red_firework").set_self_opacity(0.8)
 	var animPlayer = get_node("bonus/BonusPlayer").play("floatbonus")
 	
 func _process(delta):
@@ -95,6 +98,9 @@ func _on_WaveAnimation_finished():
 
 func _on_BonusPlayer_finished():
 	get_node("bonus/BonusPlayer").seek(0, true)
+	get_node("yellow_firework").set_self_opacity(0)
+	get_node("blue_firework").set_self_opacity(0)
+	get_node("red_firework").set_self_opacity(0)
 	bonus_arrived()
 
 func _on_BonusTextPlayer_finished():
