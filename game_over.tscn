@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=1]
+[gd_scene load_steps=7 format=1]
 
 [ext_resource path="res://game_over.gd" type="Script" id=1]
 [ext_resource path="res://img/background.png" type="Texture" id=2]
 [ext_resource path="res://img/game_over.png" type="Texture" id=3]
 [ext_resource path="res://try_again_button.tscn" type="PackedScene" id=4]
+[ext_resource path="res://fonts/bonus_font_less_space.fnt" type="BitmapFont" id=5]
+[ext_resource path="res://highscore.tscn" type="PackedScene" id=6]
 
 [node name="game_over" type="Node2D"]
 
@@ -23,6 +25,24 @@ texture = ExtResource( 3 )
 [node name="try_again_button" parent="." instance=ExtResource( 4 )]
 
 transform/pos = Vector2( 523.726, 511.402 )
+
+[node name="highscore_label" type="Label" parent="."]
+
+focus/ignore_mouse = true
+focus/stop_mouse = true
+size_flags/horizontal = 2
+size_flags/vertical = 0
+margin/left = 390.0
+margin/top = 367.0
+margin/right = 648.0
+margin/bottom = 434.0
+custom_fonts/font = ExtResource( 5 )
+text = "Highscore:  "
+percent_visible = 1.0
+lines_skipped = 0
+max_lines_visible = -1
+
+[node name="highscore" parent="." instance=ExtResource( 6 )]
 
 [connection signal="try_again_button_released" from="try_again_button" to="." method="_on_try_again_button_try_again_button_released"]
 
