@@ -16,12 +16,12 @@ var thinking_track
 var current_action = STANDING
 
 var bonus_counter = 0
-var final_score = 0
 var combo_count = 0
 var waves_jumped_label
 var bonus_list
 
 func _ready():
+	info.final_score = 0
 	sequence_timer = get_node("sequence_timer")
 	upper_part = get_node("upper_part")
 	thinking_track = get_node("thinking_track")
@@ -112,8 +112,8 @@ func increment_life():
 	upper_part.got_a_life()
 	
 func display_score():
-	final_score = n_waves * 100 + bonus_counter * 200
-	waves_jumped_label.set_text(str(final_score))
+	info.final_score = n_waves + bonus_counter*5
+	waves_jumped_label.set_text(str(info.final_score))
 	
 func check_game_over():
 	if lifes <= 0:
