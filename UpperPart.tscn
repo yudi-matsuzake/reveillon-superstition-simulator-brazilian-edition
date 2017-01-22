@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=1]
+[gd_scene load_steps=54 format=1]
 
 [ext_resource path="res://UpperPart.gd" type="Script" id=1]
 [ext_resource path="res://bonus.gd" type="Script" id=2]
@@ -7,24 +7,38 @@
 [ext_resource path="res://img/menini/standing_1.png" type="Texture" id=5]
 [ext_resource path="res://img/menini/standing_2.png" type="Texture" id=6]
 [ext_resource path="res://img/menini/standing_3.png" type="Texture" id=7]
-[ext_resource path="res://img/menini/jumping_1.png" type="Texture" id=8]
-[ext_resource path="res://img/menini/jumping_2.png" type="Texture" id=9]
-[ext_resource path="res://img/menini/jumping_3.png" type="Texture" id=10]
-[ext_resource path="res://img/menini/jumping_4.png" type="Texture" id=11]
-[ext_resource path="res://img/menini/jumping_5.png" type="Texture" id=12]
-[ext_resource path="res://img/menini/pain_1.png" type="Texture" id=13]
-[ext_resource path="res://img/menini/pain_2.png" type="Texture" id=14]
+[ext_resource path="res://img/menini/pain_1.png" type="Texture" id=8]
+[ext_resource path="res://img/menini/pain_2.png" type="Texture" id=9]
+[ext_resource path="res://img/menini/jumping_1.png" type="Texture" id=10]
+[ext_resource path="res://img/menini/jumping_2.png" type="Texture" id=11]
+[ext_resource path="res://img/menini/jumping_3.png" type="Texture" id=12]
+[ext_resource path="res://img/menini/jumping_4.png" type="Texture" id=13]
+[ext_resource path="res://img/menini/jumping_5.png" type="Texture" id=14]
 [ext_resource path="res://menini.gd" type="Script" id=15]
 [ext_resource path="res://menini_jumping_animations.tres" type="Animation" id=16]
 [ext_resource path="res://img/onda/onda_vindo2.png" type="Texture" id=17]
 [ext_resource path="res://img/onda/onda_vindo_1.png" type="Texture" id=18]
 [ext_resource path="res://img/onda/onda_vindo_3.png" type="Texture" id=19]
-[ext_resource path="res://fonts/bonus_font_less_space.fnt" type="BitmapFont" id=20]
-[ext_resource path="res://fonts/bonus_font.fnt" type="BitmapFont" id=21]
-[ext_resource path="res://marscript.gd" type="Script" id=22]
-[ext_resource path="res://img/onda/mar_1.png" type="Texture" id=23]
-[ext_resource path="res://img/onda/mar_2.png" type="Texture" id=24]
-[ext_resource path="res://img/onda/mar_3.png" type="Texture" id=25]
+[ext_resource path="res://img/onda/onda_quebrando_1.png" type="Texture" id=20]
+[ext_resource path="res://img/onda/onda_quebrando_2.png" type="Texture" id=21]
+[ext_resource path="res://fonts/bonus_font_less_space.fnt" type="BitmapFont" id=22]
+[ext_resource path="res://fonts/bonus_font.fnt" type="BitmapFont" id=23]
+[ext_resource path="res://marscript.gd" type="Script" id=24]
+[ext_resource path="res://img/onda/mar_1.png" type="Texture" id=25]
+[ext_resource path="res://img/onda/mar_2.png" type="Texture" id=26]
+[ext_resource path="res://img/onda/mar_3.png" type="Texture" id=27]
+[ext_resource path="res://img/bonus/vermelho1.png" type="Texture" id=28]
+[ext_resource path="res://img/bonus/vermelho2.png" type="Texture" id=29]
+[ext_resource path="res://img/bonus/vermelho3.png" type="Texture" id=30]
+[ext_resource path="res://img/bonus/vermelho4.png" type="Texture" id=31]
+[ext_resource path="res://img/bonus/amarelo1.png" type="Texture" id=32]
+[ext_resource path="res://img/bonus/amarelo2.png" type="Texture" id=33]
+[ext_resource path="res://img/bonus/amarelo3.png" type="Texture" id=34]
+[ext_resource path="res://img/bonus/amarelo4.png" type="Texture" id=35]
+[ext_resource path="res://img/bonus/azul1.png" type="Texture" id=36]
+[ext_resource path="res://img/bonus/azul2.png" type="Texture" id=37]
+[ext_resource path="res://img/bonus/azul3.png" type="Texture" id=38]
+[ext_resource path="res://img/bonus/azul4.png" type="Texture" id=39]
 
 [sub_resource type="Animation" id=1]
 
@@ -65,7 +79,7 @@ animations = [ { "frames":[ ExtResource( 3 ), ExtResource( 4 ) ], "loop":true, "
 
 [sub_resource type="SpriteFrames" id=4]
 
-animations = [ { "frames":[ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ], "loop":true, "name":"default", "speed":5.0 }, { "frames":[ ExtResource( 8 ), ExtResource( 9 ), ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ) ], "loop":false, "name":"jumping", "speed":4.0 }, { "frames":[ ExtResource( 13 ), ExtResource( 14 ) ], "loop":true, "name":"in_pain", "speed":3.0 } ]
+animations = [ { "frames":[ ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ) ], "loop":true, "name":"default", "speed":5.0 }, { "frames":[ ExtResource( 8 ), ExtResource( 9 ) ], "loop":true, "name":"in_pain", "speed":3.0 }, { "frames":[ ExtResource( 10 ), ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ), ExtResource( 14 ) ], "loop":false, "name":"jumping", "speed":4.0 } ]
 
 [sub_resource type="Animation" id=5]
 
@@ -118,18 +132,23 @@ tracks/1/keys = { "times":FloatArray( 0, 0.3, 1.6, 2 ), "transitions":FloatArray
 
 [sub_resource type="SpriteFrames" id=8]
 
-animations = [ { "frames":[ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ) ], "loop":true, "name":"default", "speed":5.0 } ]
+animations = [ { "frames":[ ExtResource( 17 ), ExtResource( 18 ), ExtResource( 19 ) ], "loop":true, "name":"default", "speed":5.0 }, { "frames":[ ExtResource( 20 ), ExtResource( 21 ) ], "loop":false, "name":"quebrando", "speed":2.0 } ]
 
 [sub_resource type="Animation" id=9]
 
-length = 5.0
+length = 3.0
 loop = false
 step = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:transform/pos")
 tracks/0/interp = 1
 tracks/0/imported = false
-tracks/0/keys = { "times":FloatArray( 0, 3.7, 5 ), "transitions":FloatArray( 1, 1, 1 ), "update":0, "values":[ Vector2( 1034, 325 ), Vector2( 305.84, 325 ), Vector2( -29, 401 ) ] }
+tracks/0/keys = { "times":FloatArray( 0, 2, 3 ), "transitions":FloatArray( 1, 1, 1 ), "update":0, "values":[ Vector2( 1034, 325 ), Vector2( 305.84, 325 ), Vector2( -29, 336 ) ] }
+tracks/1/type = "value"
+tracks/1/path = NodePath(".:animation")
+tracks/1/interp = 1
+tracks/1/imported = false
+tracks/1/keys = { "times":FloatArray( 0, 2, 2.5 ), "transitions":FloatArray( 1, 1, 1 ), "update":1, "values":[ "default", "default", "quebrando" ] }
 
 [sub_resource type="Animation" id=10]
 
@@ -165,6 +184,18 @@ tracks/2/interp = 1
 tracks/2/imported = false
 tracks/2/keys = { "times":FloatArray( 0, 0.5, 1 ), "transitions":FloatArray( 1, 1, 1 ), "update":0, "values":[ Vector2( 0, 0 ), Vector2( 15, 15 ), Vector2( 29, 13 ) ] }
 
+[sub_resource type="SpriteFrames" id=12]
+
+animations = [ { "frames":[ ExtResource( 28 ), ExtResource( 29 ), ExtResource( 30 ), ExtResource( 31 ) ], "loop":true, "name":"burst", "speed":5.0 } ]
+
+[sub_resource type="SpriteFrames" id=13]
+
+animations = [ { "frames":[ ExtResource( 32 ), ExtResource( 33 ), ExtResource( 34 ), ExtResource( 35 ) ], "loop":true, "name":"default", "speed":5.0 } ]
+
+[sub_resource type="SpriteFrames" id=14]
+
+animations = [ { "frames":[ ExtResource( 36 ), ExtResource( 37 ), ExtResource( 38 ), ExtResource( 39 ) ], "loop":true, "name":"default", "speed":5.0 } ]
+
 [node name="UpperPart" type="Node2D"]
 
 script/script = ExtResource( 1 )
@@ -191,6 +222,8 @@ blend_times = [  ]
 autoplay = ""
 
 [node name="LifeMeter" type="Node2D" parent="."]
+
+editor/display_folded = true
 
 [node name="L1" type="AnimatedSprite" parent="LifeMeter"]
 
@@ -219,7 +252,6 @@ editor/display_folded = true
 transform/pos = Vector2( 100, 375 )
 frames = SubResource( 4 )
 animation = "default"
-frame = 1
 playing = true
 centered = false
 script/script = ExtResource( 15 )
@@ -247,11 +279,10 @@ playback/speed = 1.0
 
 [node name="Wave" type="AnimatedSprite" parent="."]
 
-editor/display_folded = true
-transform/pos = Vector2( 1034, 325 )
+transform/pos = Vector2( -29, 336 )
 frames = SubResource( 8 )
-animation = "default"
-frame = 2
+animation = "quebrando"
+frame = 1
 playing = true
 centered = false
 
@@ -278,7 +309,7 @@ margin/left = 824.0
 margin/top = 315.0
 margin/right = 1024.0
 margin/bottom = 350.0
-custom_fonts/font = ExtResource( 20 )
+custom_fonts/font = ExtResource( 22 )
 custom_constants/line_spacing = 0
 align = 1
 valign = 2
@@ -308,7 +339,7 @@ margin/left = 824.0
 margin/top = 250.0
 margin/right = 1024.0
 margin/bottom = 300.0
-custom_fonts/font = ExtResource( 21 )
+custom_fonts/font = ExtResource( 23 )
 align = 1
 valign = 2
 percent_visible = 1.0
@@ -337,13 +368,13 @@ playback/active = true
 playback/speed = 1.0
 blend_times = [  ]
 autoplay = "movimento"
-script/script = ExtResource( 22 )
+script/script = ExtResource( 24 )
 
 [node name="mar_1" type="Sprite" parent="OndasPlayer"]
 
 transform/pos = Vector2( 16, 9 )
 z/z = 2
-texture = ExtResource( 23 )
+texture = ExtResource( 25 )
 centered = false
 region = true
 region_rect = Rect2( 0, 0, 1024, 576 )
@@ -352,7 +383,7 @@ region_rect = Rect2( 0, 0, 1024, 576 )
 
 transform/pos = Vector2( 6, -3 )
 z/z = 1
-texture = ExtResource( 24 )
+texture = ExtResource( 26 )
 centered = false
 region = true
 region_rect = Rect2( 0, 0, 1024, 576 )
@@ -360,10 +391,38 @@ region_rect = Rect2( 0, 0, 1024, 576 )
 [node name="mar_3" type="Sprite" parent="OndasPlayer"]
 
 transform/pos = Vector2( 29, 13 )
-texture = ExtResource( 25 )
+texture = ExtResource( 27 )
 centered = false
 region = true
 region_rect = Rect2( 0, 0, 1024, 576 )
+
+[node name="red_firework" type="AnimatedSprite" parent="."]
+
+visibility/self_opacity = 0.0
+transform/pos = Vector2( 527.358, -2.72589 )
+frames = SubResource( 12 )
+animation = "burst"
+frame = 1
+playing = true
+centered = false
+
+[node name="yellow_firework" type="AnimatedSprite" parent="."]
+
+visibility/self_opacity = 0.0
+transform/pos = Vector2( 642.902, 160.726 )
+frames = SubResource( 13 )
+animation = "default"
+frame = 3
+playing = true
+
+[node name="blue_firework" type="AnimatedSprite" parent="."]
+
+visibility/self_opacity = 0.0
+transform/pos = Vector2( 543.994, 309.088 )
+frames = SubResource( 14 )
+animation = "default"
+frame = 1
+playing = true
 
 [connection signal="finished" from="bonus/BonusPlayer" to="." method="_on_BonusPlayer_finished"]
 
