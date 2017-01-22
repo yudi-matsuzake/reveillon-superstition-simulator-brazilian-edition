@@ -17,13 +17,19 @@ var current_action = STANDING
 
 var bonus_counter = 0
 var final_score = 0
+var combo_count = 0
 var waves_jumped_label
+var bonus_list
 
 func _ready():
 	sequence_timer = get_node("sequence_timer")
 	upper_part = get_node("upper_part")
 	thinking_track = get_node("thinking_track")
 	waves_jumped_label = get_node("WavesJumpedLabel")
+	bonus_list = [ 	{ 	'pre_text' : 'comeu lentilha',	'text' : "+felicidade", 	'texture' : preload("res://img/bonus/lentilha_luz.png")},
+					{	'pre_text' : 'tomou champagne', 'text' : "+prosperidade", 	'texture' : preload("res://img/bonus/champagne_luz.png")},
+					{	'pre_text' : 'comeu uva',		'text' : "+dinheiro", 		'texture' : preload("res://img/bonus/uvas_sm.png")}
+				 ]
 	generate_new_wave()
 	set_process(true)
 	
@@ -54,10 +60,11 @@ func _on_thinking_track_pressed_wrong_key():
 func _on_thinking_track_completed_key_sequence():
 	increase_wave_number()
 	current_action = JUMPING_WAVE
+	# start timer to know when character finished jumping wave
 	sequence_timer.stop()
 	sequence_timer.set_wait_time(PAUSE_TIME)
 	sequence_timer.start()
-	upper_part.jumpwave(PAUSE_TIME)
+	upper_part.jumpwave(PAUSE_TIME, combo_count)
 
 func _on_sequence_timer_timeout():
 	if (current_action == STANDING):
@@ -81,15 +88,16 @@ func _on_sequence_timer_timeout():
 		
 func increase_wave_number():
 	n_waves += 1
-	if n_waves % 7 == 0 :
-		upper_part.give_bonus()
+	combo_count += 1
+	if combo_count % 7 == 0 :
+		var bonus = bonus_list[randi() % bonus_list.size()]
+		upper_part.give_bonus(bonus)
 		bonus_counter += 1
 		# temporizar isso aqui
-		var frases = ["+ prosperidade na sua vida", "+ amor", "+ dinheiro"]
-		get_node("combo_display").set_text(frases[randi()%frases.size()])
 	
 func decrement_life():
 	lifes -= 1
+	combo_count = 0
 	
 func increment_life():
 	lifes += 1
